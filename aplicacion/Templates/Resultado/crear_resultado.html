@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Crear Partido{% endblock %}
+
+{% block nav %}
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+
+      <div class="container-fluid">
+        <a href="{%url 'index'%}"><img src="{% static 'img/ball.png'%}" width="75px"></a>
+        <a href="{%url 'index'%}" style="text-decoration: none;color: black;font-size: large;"><strong>MUNDIALITO UCI</strong></a>
+        <div class="collapse navbar-collapse" id="" style="margin-left:20%;">
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+           
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{%url 'Listar_Posiciones'%}"><strong>Posiciones</strong></a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Partidos'%}"><strong>Partidos</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Resultados'%}"><strong>Resultados</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{%url 'Listar_Calendario'%}"><strong>Calendario</strong></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Preguntas'%}"><strong>Preguntas</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Arbitros'%}"><strong>Arbitros</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'login'%}"><strong>Iniciar Seción</strong></a>
+            </li>
+           
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+
+    {% endblock%}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+
+
+
+
+
+
+        <form method="post" name="formulario" style="width:60%;margin-left:20%;margin-top:-10px ">
+            {% csrf_token %}
+            {% for field in formulario %}
+                <label for="{{ field.auto_id }}" class="form-label" style="margin-top:7%">{{ field.label }}</label>
+                {{ field }}
+                <div class="col-12 help-text" >{{field.errors}}</div>
+                <label class="form-label">{{ f.label }}</label>
+            {% endfor %}
+            <input class="btn btn-success" type="submit" value="Crear Resultado" style="margin-left:85%;margin-top:5px">
+            <a  class="btn btn-success" href="{% url 'Listar_Resultados'%}" style="margin-top:-65px;margin-left:450px">Cancelar</a>
+           
+          </form>
+{% endblock %}

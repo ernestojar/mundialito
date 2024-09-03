@@ -1,0 +1,35 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    border-bottom-left-radius:10px ;
+    border-bottom-right-radius:10px ;
+    background-color:#85fa85;
+    color:#0c0f0f;
+    padding-bottom: 0;
+
+}
+#footer{
+    width: 100%;
+    height: 100px;
+
+}
+a{text-decoration: none;
+color: black;
+}
+.container-fluid{
+    background: linear-gradient(to right,#229f22,#6ef36e);
+ 
+}
+
+
+.pregunta-verde-claro {
+    background-color: #87fa91; /* Verde claro */
+}
+
+.pregunta-verde-medio {
+    background-color: #83f357; /* Verde medio */
+}
+
+
+
+

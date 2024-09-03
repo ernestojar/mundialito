@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   {%block titulo%}Inicio{%endblock%}
+
+   
+
+  </head>
+ 
+ 
+ 
+  <body>
+
+    <!--Barra de Navegacion-->
+    {% block nav %}
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+
+      <div class="container-fluid">
+        <a href="{%url 'index'%}"><img src="{% static 'img/ball.png'%}" width="75px"></a>
+        <a href="{%url 'index'%}" style="text-decoration: none;color: black;font-size: large;"><strong>MUNDIALITO UCI</strong></a>
+        <div class="collapse navbar-collapse" id="" style="margin-left:16%;">
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+           
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{%url 'Listar_Posiciones'%}"><strong>Posiciones</strong></a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Partidos'%}"><strong>Partidos</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Resultados'%}"><strong>Resultados</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{%url 'Listar_Calendario'%}"><strong>Calendario</strong></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Preguntas'%}"><strong>Preguntas</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Arbitros'%}"><strong>Arbitros</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'login'%}"><strong>Iniciar Seción</strong></a>
+            </li>
+
+            <li class="nav-item">
+             
+              {% if user.is_authenticated %}
+               
+              <a href="{%url 'desloguear'%}"><img src="{% static 'img/des.png'%}" width="30px"style="margin-left:10px;margin-top:5px"></a>
+              
+              {% endif %}
+
+                 </li>
+
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+
+    {% endblock%}
+
+    {% block imagen %}
+    <img src="{% static 'img/123.avif'%}" class="img-fluid" width="100%" alt="..." >
+    {% endblock %}
+    
+    {% block bienvenido %}
+    <h1 style="margin-top:-15%;margin-left:15%; color:antiquewhite">Bienvenidos</h1>
+    <br>
+    <a type="button" href="{%url 'nosotros'%}" class="btn btn-outline-light" style="margin-left: 15%;">Nosotros</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% endblock %}
+    {% block futer %}
+<div style="background-color:  #85fa85;margin-top: -2%;"> 
+<br>
+<br>
+<div class="card" aria-hidden="true" style="width:12%;margin-top:2%; margin-left:4%;border-radius:20px;">
+  <img src="{% static 'img/caimanes.png'%}" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title">Facultad 4</h5>
+    <p class="card-text">Caimanes</p>
+   
+  </div>
+</div>
+
+<div class="card" aria-hidden="true" style="width:12%; margin-left:20%; margin-top:-19.8%;border-radius:20px;">
+  <img src="{% static 'img/dragones.png'%}" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title">Facultad 3</h5>
+    <p class="card-text">Dragones</p>
+    
+  </div>
+</div>
+
+<div class="card" aria-hidden="true" style="width:12%; margin-left:36%; margin-top:-19.7%;border-radius:20px;">
+  <img src="{% static 'img/escorpiones.png'%}" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title">Facultad 2</h5>
+    <p class="card-text">Escorpiones</p>
+    
+  </div>
+</div>
+
+<div class="card" aria-hidden="true" style="width:12%; margin-left:52%; margin-top:-19.9%;border-radius:20px;">
+  <img src="{% static 'img/lobos.png'%}" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title">FTE</h5>
+    <p class="card-text">Lobos</p>
+    
+  </div>
+</div>
+
+<div class="card" aria-hidden="true" style="width:12%; margin-left:68%; margin-top:-19.7%;border-radius:20px;">
+  <img src="{% static 'img/zorros.png'%}" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title">Facultad 1</h5>
+    <p class="card-text">Zorros</p>
+    
+  </div>
+</div>
+
+<div class="card" aria-hidden="true" style="width:12%; margin-left:84%; margin-top:-19.9%;border-radius:20px;">
+  <img src="{% static 'img/gladiadores.png'%}" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title">Facultad 6</h5>
+    <p class="card-text">Gladiadores</p>
+    
+  </div>
+</div>
+</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav %}
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+
+      <div class="container-fluid">
+        <a href="{%url 'index'%}"><img src="{% static 'img/ball.png'%}" width="75px"></a>
+        <a href="{%url 'index'%}" style="text-decoration: none;color: black;font-size: large;"><strong>MUNDIALITO UCI</strong></a>
+        <div class="collapse navbar-collapse" id="" style="margin-left:20%;">
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+           
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{%url 'Listar_Posiciones'%}"><strong>Posiciones</strong></a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Partidos'%}"><strong>Partidos</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Resultados'%}"><strong>Resultados</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{%url 'Listar_Calendario'%}"><strong>Calendario</strong></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Preguntas'%}"><strong>Preguntas</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Arbitros'%}"><strong>Arbitros</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'login'%}"><strong>Iniciar Seción</strong></a>
+            </li>
+           
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+
+    {% endblock%}
+
+    {% block contenido %}
+    <style>
+      .pregunta-verde-claro {
+          background-color: lightgreen;
+      }
+      .pregunta-verde-medio {
+          background-color: rgb(63, 238, 121);
+      }
+  </style>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a  class="btn btn-success" href="{% url 'Crear_Preguntas'%}" style="margin-top:50px;margin-left:80%">Añadir Pregunta</a>
+    <a  class="btn btn-success" href="{% url 'Crear_Respuestas'%}" style="margin-top:10px;margin-left:80%">Añadir Respuesta</a>
+                   
+ <div style="margin-left:10%; margin-right:25%;margin-top:-135px">
+ <h1 style="  font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif; margin-left:155px"> <strong>Preguntas y Respuestas</strong></h1>
+ {% for o in preguntas %}
+     <div class="pregunta {% cycle 'pregunta-verde-claro' 'pregunta-verde-medio' %}">
+         <h4 style="  font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;">{{ o.autor }}</h4>
+         <p style="  font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;">{{ o.preguntas }}</p>
+         <h4 style="  font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;">Respuestas:</h4>
+         {% for respuesta in o.respuesta_set.all %}
+             <p style="  font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;">{{ forloop.counter }}) {{ respuesta.respuesta }}</p>
+         {% empty %}
+             <p style="  font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;">No hay respuestas para esta pregunta.</p>
+         {% endfor %}
+     </div>
+ {% endfor %}
+ </div>
+              
+ {% endblock %}

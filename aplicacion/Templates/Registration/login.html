@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mundialito UCI</title>
+    
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap2.js'%}"></script>
+  </head>
+
+<body> 
+  <div class="containera">
+ <img src="{% static 'img/123.avif'%}" alt="..." >
+  <div  class="overlay">
+<form   id="form" method='post'>
+  {% csrf_token %}
+    <div class="mb-3 " >
+        <br>
+        <H2 style="margin-left:20px;"><strong>Iniciar Seción</strong></H2>
+        <br>
+      <label for="exampleInputEmail1" class="form-label"style="margin-left:5%;">Usuario</label>
+      <input type="user" class="form-control"  name='username' id="user" style="margin-left:5%; margin-right:5%; width: 80%;">
+      
+    </div>
+    <br>
+    <div class="mb-3">
+      <label for="exampleInputEmail" class="form-label"style="margin-left:5%;">Contraseña</label>
+      <input type="password" class="form-control" name='password' id="Password" style="margin-left:5%; margin-right:5%; width: 80%;"autocomplete="new-password">
+       </div>
+
+    <br>
+    <br>
+    <button type="submit" class="btn btn-dark"style="margin-left:65%" onclick="validar()">Aceptar</button>
+    <br>
+    <br>
+  </form>
+</div>
+</div>
+
+</body>
+<script src="{%static '.js/validacion.js' %}"></script>

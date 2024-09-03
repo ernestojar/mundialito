@@ -1,0 +1,40 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mundialito UCI</title>
+
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}" type="text/css">
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap2.js'%}"></script>
+
+  </head>
+  <body>
+    <style>
+        body {
+            background-color: #bbf0a4;
+        }
+    </style>
+    <div class="container-lg text-center"style="margin-top:30px;background-color: #bbf0a4;">
+        <div class="row">
+          <div class="col-6">
+            <p style="margin-top: 50px;margin-left:-40px">La Universidad de las Ciencias Informáticas (UCI) en Cuba se destaca por su compromiso con el deporte, considerándolo una herramienta esencial para promover el desarrollo integral de sus estudiantes, profesores y trabajadores.
+             La UCI ofrece una amplia gama de disciplinas deportivas, incluyendo futbol, y cuenta con una infraestructura adecuada para la práctica de estos deportes, distribuyendo múltiples áreas para la recreación sana de la comunidad universitaria. 
+             Uno de los eventos más emblemáticos es el Mundialito UCI. Evento que consite en un torneo de futbol Sala donde los estudiantes crean un equipo por cada Facultad y compiten entre ello. Este evento persigue el objetivo de reforzar el hábito deportivo, promoviendo estilos de vida saludables y la participación activa en la comunidad. 
+            </p>
+            <a  class="btn btn-success" href="{% url 'index'%}" style="margin-top:50px;margin-left:-60px">Atras</a>
+            </div>
+          <div class="col-6">
+            <img src="{% static 'img/1.jpg' %}" width="500px">
+          </div>
+        
+        </div>
+      </div>
+
+  </body>

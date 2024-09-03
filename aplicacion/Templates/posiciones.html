@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block titulo%}Gestionar Prtidos{%endblock%}
+
+
+{% block nav %}
+
+
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+
+      <div class="container-fluid">
+        <a href="{%url 'index'%}"><img src="{% static 'img/ball.png'%}" width="75px"></a>
+        <a href="{%url 'index'%}" style="text-decoration: none;color: black;font-size: large;"><strong>MUNDIALITO UCI</strong></a>
+        <div class="collapse navbar-collapse" id="" style="margin-left:20%;">
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+           
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{%url 'Listar_Posiciones'%}"><strong>Posiciones</strong></a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Partidos'%}"><strong>Partidos</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Resultados'%}"><strong>Resultados</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{%url 'Listar_Calendario'%}"><strong>Calendario</strong></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Preguntas'%}"><strong>Preguntas</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'Listar_Arbitros'%}"><strong>Arbitros</strong></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{%url 'login'%}"><strong>Iniciar Seción</strong></a>
+            </li>
+           
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+
+    {% endblock%}
+
+
+
+
+
+{%block contenido%}
+
+<br>
+<br>
+<br>
+<br>
+<h1 style="  font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif; margin-left:380px"> <strong>Tabla de Posiciones</strong></h1>
+ 
+
+
+<table class="table table-success table-striped" style="width:60%;margin-left:18%; margin-top:4%">
+  <thead >
+      <tr>
+          <th>Equipos</th>
+          <th>Puntos</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% if lista %}
+          {% for o in lista %}
+              <tr>
+                  <td>{{ o.equipo }}</td>
+                  <td>{{ o.puntos }}</td>
+              </tr>
+          {% endfor %}
+      {% else %}
+          <tr>
+              <td colspan="2" style="text-align:center;">No hay datos que mostrar</td>
+          </tr>
+      {% endif %}
+  </tbody>
+</table>
+
+
+{%endblock%}
+
